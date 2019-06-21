@@ -1,6 +1,8 @@
 package com.company;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 //@Getter @Setter @NoArgsConstructor
@@ -18,13 +20,16 @@ public class Aluno {
     private String serieMatriculado;
     private String resultado;
 
-    private Disciplina disciplina = new Disciplina();
 
-    public Disciplina getDisciplina() {
+    /*Declarando minnha classe de Disciplina como sendo uma Lista*/
+    /*Significa que eu tenho uma lista de Disciplinas*/
+    private List <Disciplina> disciplina = new ArrayList<Disciplina>();
+
+    public List<Disciplina> getDisciplina() {
         return disciplina;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
+    public void setDisciplina(List<Disciplina> disciplina) {
         this.disciplina = disciplina;
     }
 
@@ -118,7 +123,7 @@ public class Aluno {
     }
 
     public double getMediaNota() {
-        return (disciplina.getNota1()+ disciplina.getNota2() + disciplina.getNota3() + disciplina.getNota4()) / 4;
+        return 0;
     }
 
 

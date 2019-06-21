@@ -154,32 +154,32 @@ public class Main {
 //            aluno.setSerieMatriculado(serie);
 
         String disciplina1 = JOptionPane.showInputDialog("Insira a disciplina 1 cursando");
-            aluno.getDisciplina().setDisciplina1(disciplina1);
+
 
         String nota1 = JOptionPane.showInputDialog("Qual a nota da primeira prova? ");
             double notaEntrada1 = Double.parseDouble(nota1);
-            aluno.getDisciplina().setNota1(notaEntrada1);
+
 
         String disciplina2 = JOptionPane.showInputDialog("Insira a disciplina 2 cursando");
-            aluno.getDisciplina().setDisciplina2(disciplina2);
+
 
         String nota2 = JOptionPane.showInputDialog("Qual a nota da segunda prova? ");
             double notaEntrada2 = Double.parseDouble(nota2);
-            aluno.getDisciplina().setNota2(notaEntrada2);
+
 
         String disciplina3 = JOptionPane.showInputDialog("Insira a disciplina 3 cursando");
-            aluno.getDisciplina().setDisciplina3(disciplina3);
+
 
         String nota3 = JOptionPane.showInputDialog("Qual a nota da terceira prova? ");
             double notaEntrada3 = Double.parseDouble(nota3);
-            aluno.getDisciplina().setNota3(notaEntrada3);
+
 
         String disciplina4 = JOptionPane.showInputDialog("Insira a disciplina 4 cursando");
-            aluno.getDisciplina().setDisciplina4(disciplina4);
+
 
         String nota4 = JOptionPane.showInputDialog("Qual a nota da quarta prova? ");
             double notaEntrada4 = Double.parseDouble(nota4);
-            aluno.getDisciplina().setNota4(notaEntrada4);
+
 //
 //
 //
@@ -193,14 +193,6 @@ public class Main {
 //        System.out.println("Data da matrícula: " + aluno.getDataMatricula());
 //        System.out.println("Série: " + aluno.getSerieMatriculado());
 
-        System.out.println("Disciplina 1: "+aluno.getDisciplina().getDisciplina1());
-        System.out.println("Nota 1: " + aluno.getDisciplina().getNota1());
-        System.out.println("Disciplina 2: "+aluno.getDisciplina().getDisciplina2());
-        System.out.println("Nota 2: " + aluno.getDisciplina().getNota2());
-        System.out.println("Disciplina 3: "+aluno.getDisciplina().getDisciplina3());
-        System.out.println("Nota 3: " + aluno.getDisciplina().getNota3());
-        System.out.println("Disciplina 4: "+aluno.getDisciplina().getDisciplina4());
-        System.out.println("Nota 4: " + aluno.getDisciplina().getNota4());
         aluno.situacaoAluno();
 
 
