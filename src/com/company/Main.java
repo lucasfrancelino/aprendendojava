@@ -88,7 +88,7 @@ public class Main {
 
 //        /*************************************************************/
 
-        Aluno aluno = new Aluno();
+
 
 
 //        aluno.setNome("Lucas");
@@ -125,35 +125,41 @@ public class Main {
 
         /*************************************************************/
 
-//        String nomeEntrada = JOptionPane.showInputDialog("Qual nome do estudante?");
-//            aluno.setNome(nomeEntrada);
-//
-//        String idadeEntrada = JOptionPane.showInputDialog("Qual a idade do estudate?");
-//            int idade = Integer.parseInt(idadeEntrada);
-//                aluno.setIdade(idade);
-//
-//        String dataNascimentoEntrada = JOptionPane.showInputDialog("Data de nascimento de " +nomeEntrada+ "?");
-//            aluno.setDataNascimento(dataNascimentoEntrada);
-//
-//        String rg = JOptionPane.showInputDialog("Insira o RG de " +nomeEntrada+ ":");
-//            aluno.setRegistroGeral(rg);
-//
-//        String cpf = JOptionPane.showInputDialog("Insira o CPF de " +nomeEntrada+ ":");
-//            aluno.setNumeroCpf(cpf);
-//
-//        String nomeMae = JOptionPane.showInputDialog("Insira o nome da mãe de " +nomeEntrada+ ":");
-//            aluno.setNomeMae(nomeMae);
-//
-//        String nomePai = JOptionPane.showInputDialog("Insira o nome do pai de " +nomeEntrada+ ":");
-//            aluno.setNomePai(nomePai);
-//
-//        String dataMatricula = JOptionPane.showInputDialog("Qual a data da matricula?");
-//            aluno.setDataMatricula(dataMatricula);
-//
-//        String serie = JOptionPane.showInputDialog("Qual a série que o estudante está matriculado? ");
-//            aluno.setSerieMatriculado(serie);
+        List <Aluno> alunos = new ArrayList<Aluno>();
 
-        String disciplina1 = JOptionPane.showInputDialog("Insira a disciplina 1 cursando");
+        for(int quantidade = 1; quantidade <= 2; quantidade++) {
+
+            Aluno aluno = new Aluno();
+
+            String nomeEntrada = JOptionPane.showInputDialog("Qual nome do "+quantidade+"º estudante  ?");
+            aluno.setNome(nomeEntrada);
+
+            /*String idadeEntrada = JOptionPane.showInputDialog("Qual a idade do estudate?");
+            int idade = Integer.parseInt(idadeEntrada);
+            aluno.setIdade(idade);
+
+            String dataNascimentoEntrada = JOptionPane.showInputDialog("Data de nascimento de " + nomeEntrada + "?");
+            aluno.setDataNascimento(dataNascimentoEntrada);
+
+            String rg = JOptionPane.showInputDialog("Insira o RG de " + nomeEntrada + ":");
+            aluno.setRegistroGeral(rg);
+
+            String cpf = JOptionPane.showInputDialog("Insira o CPF de " + nomeEntrada + ":");
+            aluno.setNumeroCpf(cpf);
+
+            String nomeMae = JOptionPane.showInputDialog("Insira o nome da mãe de " + nomeEntrada + ":");
+            aluno.setNomeMae(nomeMae);
+
+            String nomePai = JOptionPane.showInputDialog("Insira o nome do pai de " + nomeEntrada + ":");
+            aluno.setNomePai(nomePai);
+
+            String dataMatricula = JOptionPane.showInputDialog("Qual a data da matricula?");
+            aluno.setDataMatricula(dataMatricula);
+
+            String serie = JOptionPane.showInputDialog("Qual a série que o estudante está matriculado? ");
+            aluno.setSerieMatriculado(serie);*/
+
+        /*String disciplina1 = JOptionPane.showInputDialog("Insira a disciplina 1 cursando");
 
 
         String nota1 = JOptionPane.showInputDialog("Qual a nota da primeira prova? ");
@@ -178,11 +184,73 @@ public class Main {
 
 
         String nota4 = JOptionPane.showInputDialog("Qual a nota da quarta prova? ");
-            double notaEntrada4 = Double.parseDouble(nota4);
+            double notaEntrada4 = Double.parseDouble(nota4);*/
 
-//
-//
-//
+
+            /*Adicionando disciplinas dinamicamente*/
+            for (int posicao = 1; posicao <= 1; posicao++) {
+                String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina " + posicao + "?");
+                String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina" + posicao + "?");
+
+                Disciplina disciplina = new Disciplina();
+                disciplina.setDisciplina(nomeDisciplina);
+                disciplina.setNota(Double.valueOf(notaDisciplina));
+
+                aluno.getDisciplina().add(disciplina);
+
+            }
+
+            /*Removendo disciplinas*/
+
+            int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover uma disciplina?");
+            if (escolha == 0) {
+
+                int continuarRemover = 0;
+                int posicao = 1;
+                while (continuarRemover == 0) {
+                    String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina deseja remover?");
+                    aluno.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+                    posicao++;
+                    continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar removendo disciplina");
+                }
+
+            }
+
+            /*alunos é minha lista de Aluno e aluno é meu objeto de Aluno*/
+            alunos.add(aluno);
+        }
+
+       for (int posicao = 0; posicao < alunos.size(); posicao++){
+           Aluno aluno = alunos.get(posicao);
+                if(aluno.getNome().equalsIgnoreCase("Alex")){
+                    Aluno trocar = new Aluno();
+                    trocar.setNome("Aluno foi trocado");
+
+                    Disciplina disciplina = new Disciplina();
+                    disciplina.setNota(54);
+                    disciplina.setDisciplina("Matematica");
+
+                    trocar.getDisciplina().add(disciplina);
+
+                    alunos.set(posicao, trocar);
+                    aluno = alunos.get(posicao);
+                }
+
+
+           System.out.println("Aluno: "+aluno.getNome());
+           System.out.println("Média = "+aluno.getMediaNota());
+           aluno.situacaoAluno();
+
+           for (Disciplina listaDisciplina: aluno.getDisciplina()) {
+               System.out.println(listaDisciplina.getDisciplina()+" Nota "+ listaDisciplina.getNota());
+           }
+           System.out.println("-----------------------------------------------------------");
+
+
+       }
+
+
+
 //        System.out.println("Nome: " + aluno.getNome());
 //        System.out.println("Idade: " + aluno.getIdade());
 //        System.out.println("Data de nascimento: " + aluno.getDataNascimento());
@@ -193,7 +261,7 @@ public class Main {
 //        System.out.println("Data da matrícula: " + aluno.getDataMatricula());
 //        System.out.println("Série: " + aluno.getSerieMatriculado());
 
-        aluno.situacaoAluno();
+
 
 
         /*************************************************************/
@@ -222,9 +290,7 @@ public class Main {
 
         /*************************************************************/
 
-        /*Lista em Java*/
 
-        List lista = new ArrayList();
 
 
 

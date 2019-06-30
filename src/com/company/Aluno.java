@@ -23,14 +23,14 @@ public class Aluno {
 
     /*Declarando minnha classe de Disciplina como sendo uma Lista*/
     /*Significa que eu tenho uma lista de Disciplinas*/
-    private List <Disciplina> disciplina = new ArrayList<Disciplina>();
+    private List <Disciplina> disciplinas = new ArrayList<Disciplina>();
 
     public List<Disciplina> getDisciplina() {
-        return disciplina;
+        return disciplinas;
     }
 
     public void setDisciplina(List<Disciplina> disciplina) {
-        this.disciplina = disciplina;
+        this.disciplinas = disciplina;
     }
 
     public Aluno() {
@@ -123,7 +123,14 @@ public class Aluno {
     }
 
     public double getMediaNota() {
-        return 0;
+
+        double soma = 0.0;
+
+                for(Disciplina disciplinaMedia : disciplinas){
+                    soma += disciplinaMedia.getNota();
+                }
+
+        return soma / disciplinas.size();
     }
 
 
